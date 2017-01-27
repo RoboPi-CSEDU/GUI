@@ -11,11 +11,6 @@
 
     <!------------------------------------------------------CSS-------------------------------------------------------->
 
-    <!-- Blockly core CSS -->
-    <script src="blockly_compressed.js"></script>
-    <script src="blocks_compressed.js"></script>
-    <script src="msg/js/en.js"></script>
-
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -29,7 +24,24 @@
     <!-------------------------------------------------------JS-------------------------------------------------------->
 
     <script src="dist/js/jquery-3.1.1.min.js"></script>
-
+	
+	<!-- Blockly core JS -->
+    <script src="blockly/blockly_uncompressed.js"></script>
+    <script src="blockly/python_compressed.js"></script>
+    <script src="blockly/msg/js/en.js"></script>
+    <script src="robopi/js/code_action.js"></script>
+    <script src="robopi/js/block_action.js"></script>
+    <script src="robopi/js/code_sensor.js"></script>
+    <script src="robopi/js/block_sensor.js"></script>
+    <script src="robopi/js/code_control.js"></script>
+    <script src="robopi/js/block_control.js"></script>
+    <script src="robopi/js/color.js"></script>
+    <script src="blockly/blocks/logic.js"></script>
+    <script src="blockly/blocks/math.js"></script>
+    <script src="blockly/blocks/variables.js"></script>
+    <script src="blockly/blocks/text.js"></script>
+    <script src="blockly/blocks/loops.js"></script>
+    
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
@@ -122,20 +134,62 @@
 
 
 <xml id="toolbox" style="display: none">
-    <category name="Control" colour="210">
-        <block type="controls_if"></block>
-        <block type="controls_whileUntil"></block>
-        <block type="controls_for"></block>
-    </category>
-    <category name="Logic" colour="110">
-        <block type="logic_compare"></block>
-        <block type="logic_operation"></block>
+      <category name="Action">
+        <block type="action_go"></block>
+        <block type="action_go_simple"></block>
+        <block type="action_stop"></block>
+        <block type="action_turn"></block>
+        <block type="action_say"></block>
+        
+      </category>
+      
+      <category name="Sensor">
+        <block type="sensor_get_distance"></block>
+        <block type="sensor_is_obstacle"></block>
+        <block type="sensor_get_color"></block>
+        
+      </category>
+      
+      <category name="Control">
+      	<block type="controls_if"></block>
+      	<block type="controls_whileUntil"></block>
+        <block type="control_wait"></block>
+        <block type="control_wait_until"></block>
+        
+        
+      </category>
+      
+      <category name="Logic">
+      	<block type="logic_compare"></block>
+      	<block type="logic_operation"></block>
+        <block type="logic_negate"></block>
         <block type="logic_boolean"></block>
-    </category>
-    <sep gap="32"></sep>
-    <category name="Variables" colour="330" custom="VARIABLE"></category>
-    <sep gap="32"></sep>
-    <category name="Functions" colour="290" custom="PROCEDURE"></category>
+        <block type="logic_ternary"></block>
+        
+      </category>
+      
+      
+      <category name="Math">
+      	<block type="math_number"></block>
+      	<block type="math_arithmetic"></block>
+        <block type="math_random_int"></block>
+        
+      </category>
+      
+      <category name="Text">
+      	<block type="text"></block>
+      	
+      </category>
+      
+      <category name="Color">
+      	<block type="color"></block>
+      	
+      </category>
+      
+      <category name="Variables" colour="330" custom="VARIABLE">
+      
+      	
+      </category>
 </xml>
 
 <script>
@@ -184,6 +238,9 @@
         sts.setAttribute('class', '');
         sts.setAttribute('class', 'sts-success');
         sts.innerHTML= "Compilation Successful. Ready to run.";
+        
+        //for debugging purpose
+        showCode();
     }
 
 
@@ -194,6 +251,14 @@
         sts.setAttribute('class', '');
         sts.setAttribute('class', 'sts-failure');
         sts.innerHTML= "Compilation Filed <a href='#' data-type='error' data-toggle='modal' data-target='#myModal'>(See errors here)</a>";
+    }
+    
+    
+    function showCode() {
+      // Generate JavaScript code and display it.
+      Blockly.Python.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.Python.workspaceToCode(workspace);
+      alert(code);
     }
 
 
