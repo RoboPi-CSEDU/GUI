@@ -16,7 +16,7 @@ Blockly.Python['control_while_do_true'] = function(block) {
 Blockly.Python['control_wait'] = function(block) {
   var value_wait = Blockly.Python.valueToCode(block, 'wait', Blockly.Python.ORDER_ATOMIC) || '500';
   
-  var code = 'wait('+value_wait+')\n';
+  var code = 'wait('+value_wait+');\n';
   return code;
 };
 

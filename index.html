@@ -26,8 +26,9 @@
     <script src="dist/js/jquery-3.1.1.min.js"></script>
 	
 	<!-- Blockly core JS -->
-    <script src="blockly/blockly_uncompressed.js"></script>
+    <script src="blockly/blockly_compressed.js"></script>
     <script src="blockly/python_compressed.js"></script>
+    <script src="blockly/blocks_compressed.js"></script>
     <script src="blockly/msg/js/en.js"></script>
     <script src="robopi/js/code_action.js"></script>
     <script src="robopi/js/block_action.js"></script>
@@ -36,12 +37,14 @@
     <script src="robopi/js/code_control.js"></script>
     <script src="robopi/js/block_control.js"></script>
     <script src="robopi/js/color.js"></script>
+    
+    <!--
     <script src="blockly/blocks/logic.js"></script>
     <script src="blockly/blocks/math.js"></script>
     <script src="blockly/blocks/variables.js"></script>
     <script src="blockly/blocks/text.js"></script>
     <script src="blockly/blocks/loops.js"></script>
-    
+	 -->  
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
@@ -251,6 +254,19 @@
         sts.setAttribute('class', '');
         sts.setAttribute('class', 'sts-failure');
         sts.innerHTML= "Compilation Filed <a href='#' data-type='error' data-toggle='modal' data-target='#myModal'>(See errors here)</a>";
+        
+        
+        Blockly.Python.INFINITE_LOOP_TRAP = null;
+      	var codes = Blockly.Python.workspaceToCode(workspace);
+      		
+        $.post("sendcode.py",{
+        	
+      		code: codes	
+ 
+        },function(data){
+        
+        	//do something
+        });
     }
     
     
