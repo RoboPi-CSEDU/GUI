@@ -137,12 +137,29 @@
 
 
 <xml id="toolbox" style="display: none">
-      <category name="Action">
-        <block type="action_go"></block>
+      <category name="Action" expanded="true">
+        <block type="action_go">
+        
+		    <value name="go_steps">
+		  		<shadow type="math_number">
+		    		<field name="NUM">5</field>
+		  		</shadow>
+			</value>
+		    
+        </block>
+        
         <block type="action_go_simple"></block>
         <block type="action_stop"></block>
         <block type="action_turn"></block>
-        <block type="action_say"></block>
+        <block type="action_say">
+        	
+        	<value name="say_text">
+		  		<block type="text">
+		    		<field name="TEXT">hello</field>
+		  		</block>
+			</value>
+        
+        </block>
         
       </category>
       
@@ -174,9 +191,34 @@
       
       <category name="Math">
       	<block type="math_number"></block>
-      	<block type="math_arithmetic"></block>
-        <block type="math_random_int"></block>
-        
+      	
+      	<block type="math_arithmetic">
+    		<field name="OP">ADD</field>
+    			<value name="A">
+      				<shadow type="math_number">
+        				<field name="NUM">1</field>
+      				</shadow>
+    			</value>
+    			<value name="B">
+      				<shadow type="math_number">
+        				<field name="NUM">1</field>
+      				</shadow>
+    			</value>
+  		</block>
+      	
+		<block type="math_random_int" >
+			<value name="FROM">
+			  <shadow type="math_number">
+				<field name="NUM">1</field>
+			  </shadow>
+			</value>
+			<value name="TO">
+			  <shadow type="math_number">
+				<field name="NUM">100</field>
+			  </shadow>
+			</value>
+	  	</block>
+		    
       </category>
       
       <category name="Text">
@@ -200,6 +242,7 @@
     var blocklyDiv = document.getElementById('blocklyDiv');
     var workspace = Blockly.inject(blocklyDiv,
             {
+            	collapse: false,
                 media: 'media/',
                 toolbox: document.getElementById('toolbox'),
                 toolboxPosition: 'start',
