@@ -7,7 +7,7 @@ Blockly.Python['sensor_get_distance'] = function(block) {
 
 Blockly.Python['sensor_is_obstacle'] = function(block) {
   
-  var code = 'obstacleDetected()';
+  var code = 'isObstacle()';
   
   return [code, Blockly.Python.ORDER_NONE];
 };

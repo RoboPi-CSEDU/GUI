@@ -12,7 +12,7 @@ Blockly.Blocks['sensor_get_distance'] = {
 Blockly.Blocks['sensor_is_obstacle'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("obstacle detected");
+        .appendField("is obstacle");
     this.setOutput(true, "Boolean");
     this.setColour(230);
     this.setTooltip('');
