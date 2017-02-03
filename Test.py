@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from nanpy import (ArduinoApi, SerialManager)
 from time import sleep
 
@@ -35,17 +36,22 @@ def say(str):
 	print(str)
 	
 def go(str,time):
-	if(str=='forward')
+	a='forward'
+	b='backward'
+
+	if(str==a):
 		move_forward(time)
-	else if(str=='backward')
+	elif(str==b):
 		move_back(time)
 		
 def turn(str,time):
-	if(str=='turn_left')
+	tl='turn_left'
+	tr='turn_right'
+	if(str==tl):
 		turn_left()
-	else if(str=='turn_right')
+	elif(str==tr):
 		turn_right()
-	
+		
 def move_forward(time):
     a.analogWrite(speed_left,255)
     a.analogWrite(speed_right,255)
@@ -109,3 +115,7 @@ def stop():
 			
     sleep(1)
 	
+def run():
+	print('hello world')
+	
+
