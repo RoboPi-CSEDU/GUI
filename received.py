@@ -109,3 +109,5 @@ def stop():
 			
     sleep(1)
 	
+say('hello')
+

@@ -1,7 +1,9 @@
 #!/usr/bin/python
 from http.server import BaseHTTPRequestHandler,HTTPServer
 from os import curdir, sep
+import subprocess
 import test
+import shutil
 import cgi, cgitb 
 PORT_NUMBER = 9982
 
@@ -69,11 +71,20 @@ class myHandler(BaseHTTPRequestHandler):
 				     'CONTENT_TYPE':self.headers['Content-Type'],
 		})
 		
-		print("Your code is: %s" % form["codes"].value)
+		print("Your code is: %s" % form["code"].value)
 		self.send_response(200)
 		self.end_headers()
-		self.wfile.write(("$RoboPI: %s " % form["code"].value).encode())		
-		test.run(form["code"].value)
+		self.wfile.write(("$RoboPI: %s " % form["code"].value).encode())
+		shutil.copy('test.py','received.py', )
+		file = open("received.py","a") 
+		file.write("def run():\n")
+		file.write(form["code"].value)
+		file.write("\n")
+		file.close()
+		#my_module = importlib.import_module('received.py')
+		#my_module.run()
+		subprocess.call("received.py", shell=True)
+		#test.run(form["code"].value)
 		return			
 		
 try:
