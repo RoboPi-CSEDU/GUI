@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from nanpy import (ArduinoApi, SerialManager)
 from time import sleep
 

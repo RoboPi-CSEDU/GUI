@@ -10,7 +10,7 @@ rot_right_1= 12
 rot_right_2= 13
 
 try:
-	connection = SerialManager()
+	connection = SerialManager().connect('COM4')
 	a= ArduinoApi(connection = connection)
 except:
 	print("Failed to connect")
