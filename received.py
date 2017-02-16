@@ -121,6 +121,5 @@ def run():
 	
 
 go("forward", 5)
-turn("turn_right")
 
 stop()

@@ -66,7 +66,7 @@ void getSensorData()
 
 void showSensorData()
 {
-    // 1 == White
+    // 1 == White, No Light blink
   if (LeftOut  == 1) {Serial.print("L ");} else {Serial.print("- ");} 
   if (LeftIn   == 1) {Serial.print("l ");} else {Serial.print("- ");}
   if (Center   == 1) {Serial.print("C ");} else {Serial.print("- ");}
