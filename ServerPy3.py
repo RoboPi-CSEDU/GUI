@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from http.server import BaseHTTPRequestHandler,HTTPServer
 from os import curdir, sep
 import subprocess
@@ -6,7 +6,9 @@ import test
 import shutil
 import cgi, cgitb 
 import importlib
-PORT_NUMBER = 9982
+import sys
+
+PORT_NUMBER = 9986
 
 #This class will handles any incoming request from
 #the browser 
@@ -76,14 +78,17 @@ class myHandler(BaseHTTPRequestHandler):
 		self.send_response(200)
 		self.end_headers()
 		self.wfile.write(("$RoboPI: %s " % form["code"].value).encode())
-		shutil.copy('test.py','received.py', )
+		shutil.copy('Test.py','received.py', )
 		file = open("received.py","a") 
 		file.write(form["code"].value)
 		file.write("\n")
+		file.write("stop()\n")
 		file.close()
-		my_module = importlib.import_module('received.py')
-		my_module.run()
-		#subprocess.call("received.py", shell=True)
+
+		#my_module = importlib.import_module('received.py')
+		#sys.path.append("/home/pi/Desktop/robopi-frontend/")
+		#my_module.run()
+		subprocess.call("/home/pi/Desktop/robopi-frontend/received.py", shell=True)
 		#test.run(form["code"].value)
 		return			
 		

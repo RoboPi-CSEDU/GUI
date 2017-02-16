@@ -10,8 +10,9 @@ rot_right_1= 12
 rot_right_2= 13
 
 try:
-	connection = SerialManager().connect('COM4')
+	connection = SerialManager()
 	a= ArduinoApi(connection = connection)
+	print("Connected to Arduino")
 except:
 	print("Failed to connect")
 
@@ -44,7 +45,7 @@ def go(str,time):
 	elif(str==b):
 		move_back(time)
 		
-def turn(str,time):
+def turn(str):
 	tl='turn_left'
 	tr='turn_right'
 	if(str==tl):
