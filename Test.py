@@ -54,9 +54,15 @@ def wait(time):
 
 def obstacleDetected():
     distance = m.getMeasure(trigpin, echopin)
+    while distance<0:
+        distance = m.getMeasure(trigpin, echopin)
     if distance>0 and distance<10:
+        print(distance)
+        print("Obstacle Detected")
         return True
     elif distance>=10:
+        print(distance)
+        print("No Obstacle")
         return False
             
 
@@ -89,8 +95,10 @@ def onTrack():
         print(Near)
     
     if (LeftIn==0 and Center==0 and RightIn==0):
+        print("On Track")
         return True
     else:
+        print("Out of Track")
         return False
 
 def getDistanceFromSensor():
