@@ -54,11 +54,10 @@ def wait(time):
 
 def obstacleDetected():
     distance = m.getMeasure(trigpin, echopin)
-    if distance>0 and distance<5 :
-        print("Obstacle detected")
-        print(distance)
-    elif distance>=5:
-        print(distance)
+    if distance>0 and distance<10:
+        return True
+    elif distance>=10:
+        return False
             
 
 def onTrack():
@@ -88,12 +87,19 @@ def onTrack():
         print("NEAR! ")
     else:
         print(Near)
+    
+    if (LeftIn==0 and Center==0 and RightIn==0):
+        return True
+    else:
+        return False
 
 def getDistanceFromSensor():
     distance = m.getMeasure(trigpin, echopin)
     if distance>0 :
         print(distance)
-    sleep(.25)
+    else:
+        distance=m.getMeasure(trigpin, echopin)
+    return distance
 
 def say(str):
 	print(str)
@@ -111,9 +117,9 @@ def turn(str):
     tl='turn_left'
     tr='turn_right'
     if(str==tl):
-	turn_left()
+        turn_left()
     elif(str==tr):
-	turn_right()
+        turn_right()
 		
 def move_forward(time):
     a.analogWrite(speed_left,255)
