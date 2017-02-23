@@ -2,6 +2,7 @@
 from nanpy import (ArduinoApi, SerialManager)
 from time import sleep
 
+
 speed_left= 10 
 speed_right= 11          
 rot_left_1= 8  
@@ -25,6 +26,8 @@ a.pinMode(rot_left_2,a.OUTPUT)
     
 a.pinMode(rot_right_1,a.OUTPUT)
 a.pinMode(rot_right_2,a.OUTPUT)
+
+
 
 
 # obstacleDetected()
@@ -118,5 +121,5 @@ def stop():
 	
 def run():
 	print('hello world')
-	
+
 

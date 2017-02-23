@@ -15,11 +15,11 @@
 
 /*-(Connections to NewWay 7-Way Robot Line Follower Sensor)-*/
 #define SS1_LEFT_OUT  2 
-#define SS2_LEFT_IN   4
-#define SS3_CENTER    7
-#define CLP_BUMP      8
-#define SS4_RIGHT_IN  11
-#define SS5_RIGHT_OUT 12  // Don't use pin 13 as an input..
+#define SS2_LEFT_IN   3
+#define SS3_CENTER    4
+#define CLP_BUMP      5
+#define SS4_RIGHT_IN  6
+#define SS5_RIGHT_OUT 7  // Don't use pin 13 as an input..
 
 #define NEAR          A5 // Used as digital, probably
 
