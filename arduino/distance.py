@@ -27,6 +27,7 @@ while True:
 
     
     distance = m.getMeasure(trigpin, echopin)
-    print(distance)
-    sleep(1)
+    if distance>0 :
+        print(distance)
+    sleep(.25)
 

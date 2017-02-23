@@ -111,9 +111,9 @@ def turn(str):
     tl='turn_left'
     tr='turn_right'
     if(str==tl):
-	turn_left()
+        turn_left()
     elif(str==tr):
-	turn_right()
+        turn_right()
 		
 def move_forward(time):
     a.analogWrite(speed_left,255)
@@ -154,7 +154,7 @@ def turn_right():
 			
     sleep(0.5)
 
-def turn_left():
+def turn_left() :
     a.analogWrite(speed_left,255)
     a.analogWrite(speed_right,255)
 				
@@ -181,4 +181,7 @@ def stop():
 def run():
     print('hello world')
 
-
+while True:
+    obstacleDetected()
+    onTrack()
+    wait(200)
