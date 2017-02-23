@@ -14,7 +14,7 @@ Blockly.Python['sensor_is_obstacle'] = function(block) {
 
 Blockly.Python['sensor_get_color'] = function(block) {
   
-  var code = 'getColorFromSensor()';
+  var code = 'onTrack()';
   
   return [code, Blockly.Python.ORDER_NONE];
 };

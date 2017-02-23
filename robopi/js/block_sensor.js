@@ -23,8 +23,8 @@ Blockly.Blocks['sensor_is_obstacle'] = {
 Blockly.Blocks['sensor_get_color'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("get color");
-    this.setOutput(true, "String");
+        .appendField("on track");
+    this.setOutput(true, "Boolean");
     this.setColour(230);
     this.setTooltip('');
     this.setHelpUrl('');
