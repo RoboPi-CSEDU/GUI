@@ -64,8 +64,28 @@ def obstacleDetected():
         print(distance)
         print("No Obstacle")
         return False
-            
 
+def leftIsWhite():
+    LeftIn =  a.digitalRead(SS2_LEFT_IN)
+    if (LeftIn   == 1):
+        return True
+    else:
+        return False
+
+def rightIsWhite():
+    RightIn  = a.digitalRead(SS4_RIGHT_IN)
+    if (RightIn == 1):
+        return True
+    else:
+        return False
+
+def centreIsWhite():
+    Center   = a.digitalRead(SS3_CENTER)
+    if (Center == 1):
+        return True
+    else:
+        return False
+    
 def onTrack():
     LeftIn   = a.digitalRead(SS2_LEFT_IN)
     Center   = a.digitalRead(SS3_CENTER)
@@ -130,6 +150,7 @@ def turn(str):
         turn_right()
 		
 def move_forward(time):
+    print('moving forward')
     a.analogWrite(speed_left,255)
     a.analogWrite(speed_right,255)
 				
