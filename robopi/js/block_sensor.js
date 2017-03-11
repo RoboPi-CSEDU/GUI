@@ -20,10 +20,43 @@ Blockly.Blocks['sensor_is_obstacle'] = {
   }
 };
 
-Blockly.Blocks['sensor_get_color'] = {
+Blockly.Blocks['sensor_on_track'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("on track");
+    this.setOutput(true, "Boolean");
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['sensor_left_white'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("left is white");
+    this.setOutput(true, "Boolean");
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['sensor_right_white'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("right is white");
+    this.setOutput(true, "Boolean");
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['sensor_centre_white'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("centre is white");
     this.setOutput(true, "Boolean");
     this.setColour(230);
     this.setTooltip('');

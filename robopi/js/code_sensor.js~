@@ -12,9 +12,9 @@ Blockly.Python['sensor_is_obstacle'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE];
 };
 
-Blockly.Python['sensor_get_color'] = function(block) {
+Blockly.Python['sensor_on_track'] = function(block) {
   
-  var code = 'getColorFromSensor()';
+  var code = 'onTrack()';
   
   return [code, Blockly.Python.ORDER_NONE];
 };
