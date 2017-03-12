@@ -167,7 +167,11 @@
       <category name="Sensor">
         <block type="sensor_get_distance"></block>
         <block type="sensor_is_obstacle"></block>
-        <block type="sensor_get_color"></block>
+        <block type="sensor_on_track"></block>
+        <block type="sensor_left_white"></block>
+        <block type="sensor_right_white"></block>
+        <block type="sensor_centre_white"></block>
+        
         
       </category>
       
